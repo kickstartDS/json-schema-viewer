@@ -1,5 +1,5 @@
 import resolve from '@rollup/plugin-node-resolve';
-import ts from '@wessberg/rollup-plugin-ts';
+import ts from 'rollup-plugin-ts';
 import postcss from 'rollup-plugin-postcss';
 import markdown from '@jackfranklin/rollup-plugin-markdown';
 import json from '@rollup/plugin-json';
@@ -15,8 +15,8 @@ const commonPlugins = [
 export default [
   {
     input: './src/index.ts',
-    inlineDynamicImports: true,
     output: {
+      inlineDynamicImports: true,
       file: 'dist/index.js',
       globals: {
         'react': 'React',
@@ -64,7 +64,8 @@ export default [
       }),
       ...commonPlugins,
       replace({
-        "process.env.NODE_ENV": JSON.stringify("production")
+        "process.env.NODE_ENV": JSON.stringify("production"),
+        "preventAssignment": true
       }),
     ],
   },
