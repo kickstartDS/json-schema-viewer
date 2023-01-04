@@ -8,8 +8,8 @@ import ChevronLeftIcon from '@atlaskit/icon/glyph/chevron-left';
 import LinkIcon from '@atlaskit/icon/glyph/link';
 import { Markdown } from './markdown';
 import Breadcrumbs, { BreadcrumbsItem } from '@atlaskit/breadcrumbs';
-import Tabs from '@atlaskit/tabs';
-import { TabData, OnSelectCallback } from '@atlaskit/tabs/types';
+import Tabs, { Tab, TabList, TabPanel } from '@atlaskit/tabs';
+import { TabData } from '@atlaskit/tabs/types';
 import { CodeBlockWithCopy } from './code-block-with-copy';
 import { generateJsonExampleFor, isExample } from './example';
 import { Stage, shouldShowInStage } from './stage';
@@ -130,6 +130,7 @@ const Permalink: React.FC = () => {
 type ExpandProps = {
   onOpen: string;
   onClosed: string;
+  children: JSX.Element;
 };
 
 type ExpandState = {
@@ -425,10 +426,10 @@ export type SchemaExplorerState = {
   view: ViewType;
 };
 
-const LabelToViewType: { [label: string]: ViewType } = {
-  'Details': 'details',
-  'Example (JSON)': 'example-json',
-  'Example (YAML)': 'example-yaml'
+const LabelToViewType: { [index: number]: ViewType } = {
+  0: 'details',
+  1: 'example-json',
+  2: 'example-yaml'
 };
 
 const ViewTypeToTab: { [viewType: string]: number } = {
@@ -499,12 +500,6 @@ export class SchemaExplorer extends React.PureComponent<SchemaExplorerProps, Sch
       )
     }];
 
-    const onTabSelect: OnSelectCallback = tab => {
-      this.setState({
-        view: LabelToViewType[tab.label || 'Details']
-      });
-    };
-
     return (
       <SchemaExplorer.Container>
         <SEPHead
@@ -517,7 +512,26 @@ export class SchemaExplorer extends React.PureComponent<SchemaExplorerProps, Sch
           <SchemaExplorer.Heading>{getTitle(currentPathElement.reference, schema)}</SchemaExplorer.Heading>
           <Permalink />
         </SchemaExplorer.HeadingContainer>
-        <Tabs tabs={tabData} selected={ViewTypeToTab[this.state.view || 'details']} onSelect={onTabSelect} />
+        <Tabs
+          id={path.join("_")} 
+          selected={ViewTypeToTab[this.state.view || 'details']}
+          onChange={
+            (index) => {
+              this.setState({
+                view: LabelToViewType[index || 0]
+              });
+            }
+          }
+        >
+          <TabList>
+            {
+              tabData.map(tab => <Tab>{tab.label}</Tab>)
+            }
+          </TabList>
+          {
+            tabData.map(tab => <TabPanel>{tab.content}</TabPanel>)
+          }
+        </Tabs>
       </SchemaExplorer.Container>
     );
   }

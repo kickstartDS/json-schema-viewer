@@ -1,11 +1,12 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
 import { Code } from '@atlaskit/code';
 import { gridSize } from '@atlaskit/theme';
 import { CodeBlockWithCopy } from '../../code-block-with-copy';
 
 export type CodeRendererProps = {
+  // To comply with 'react-markdown' components types
+  [x: string]: any;
   value?: string;
   language?: string;
 };

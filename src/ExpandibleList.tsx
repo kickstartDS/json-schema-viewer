@@ -30,7 +30,7 @@ export type ExpandibleListState = {
 
 class InlineCodeRenderElement extends React.PureComponent<RenderElementProps> {
   render() {
-    return <Code text={this.props.text} language="text"/>;
+    return <Code>{this.props.text}</Code>;
   }
 }
 

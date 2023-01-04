@@ -2,7 +2,7 @@ name: Can build
 on:
   push:
 jobs:
-  deploy:
+  canBuild:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -11,8 +11,12 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '18.x'
-      - name: Install and Build 🔧
+      - name: Install 💻
         run: |
           npm install
-          npm run build-prod
+      - name: Run Website build 🕸️
+        run: |
+          npm run build-prod 
+      - name: Build with Rollup 🤖
+        run: |
           npm run rollup-bundle

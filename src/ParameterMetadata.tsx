@@ -38,12 +38,12 @@ export const ParameterMetadata: React.FunctionComponent<ParameterMetadataProps> 
   const validValues = new Array<JSX.Element>();
 
   function showBoolean(name: string, key: string, value: boolean) {
-    return <span key={key}>{name}: <Code language="text" text={value ? 'true' : 'false'} /></span>;
+    return <span key={key}>{name}: <Code>{value ? 'true' : 'false'}</Code></span>;
   }
 
   function show(name: string, key: string, value: string | number) {
     const displayVal = typeof value === 'string' ? value : value.toString();
-    return <span key={key}>{name}: <Code text={displayVal} language="text" /></span>;
+    return <span key={key}>{name}: <Code >{displayVal}</Code></span>;
   }
 
   if (typeof schema !== 'boolean') {

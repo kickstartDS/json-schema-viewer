@@ -2,6 +2,8 @@ import React from 'react';
 import OpenIcon from '@atlaskit/icon/glyph/open';
 
 type LinkRendererProps = {
+  // To comply with 'react-markdown' components types
+  [x: string]: any;
   children: React.ReactNode;
   href: string;
 };

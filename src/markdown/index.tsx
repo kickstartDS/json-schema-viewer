@@ -33,6 +33,8 @@ color: ${colors.N80};
 const StyledBlockquote = styled.blockquote`${blockQuoteStyles}`;
 
 type BlockQuoteRendererProps = {
+  // To comply with 'react-markdown' components types
+  [x: string]: any;
   children: JSX.Element[];
 };
 
@@ -67,13 +69,16 @@ export const Markdown: React.FC<MarkdownProps> = (props: MarkdownProps) => {
   return (
     <ReactMarkdown
       skipHtml={true}
-      components={
-        code: BlockCodeRenderer,
-        pre: InlineCodeRenderer,
-        link: LinkRenderer,
-        blockquote: BlockQuoteRenderer,
-        hr: ThematicBreakRenderer
-      }
+      components={{
+        code: ({node, ...props}) => <BlockCodeRenderer {...props} />,
+        // @ts-ignore just testing
+        pre: ({node, ...props}) => <InlineCodeRenderer {...props} />,
+        // @ts-ignore just testing
+        link: ({node, ...props}) => <LinkRenderer {...props} />,
+        // @ts-ignore just testing
+        blockquote: ({node, ...props}) => <BlockQuoteRenderer {...props} />,
+        hr: ({node, ...props}) => <ThematicBreakRenderer {...props} />
+      }}
     >
       {source}
     </ReactMarkdown>
