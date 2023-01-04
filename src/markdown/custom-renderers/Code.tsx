@@ -32,6 +32,6 @@ const BreakWord = styled.span`
 
 export const InlineCodeRenderer: React.ElementType<CodeRendererProps> = (props) => {
   return (
-    <BreakWord><Code text={props.value || ''} language={props.language || 'text'} /></BreakWord>
+    <BreakWord><Code>{props.value || ''}</Code></BreakWord>
   );
 };

@@ -99,8 +99,7 @@ export class CodeBlockWithCopy extends React.PureComponent<CodeBlockWithCopyProp
 
   render() {
     const {
-      text,
-      language,
+      text
     } = this.props;
 
     const copyContent = this.getCopyContent();
@@ -109,8 +108,7 @@ export class CodeBlockWithCopy extends React.PureComponent<CodeBlockWithCopyProp
       <Container>
         {copyContent}
         <CodeContainer>
-          {/* @ts-ignore language property matches SupportedLanguages from CodeBlockProps */}
-          <CodeBlock {...this.props} />
+          <CodeBlock>{text}</CodeBlock>
         </CodeContainer>
       </Container>
     );
