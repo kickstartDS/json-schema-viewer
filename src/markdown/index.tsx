@@ -67,14 +67,12 @@ export const Markdown: React.FC<MarkdownProps> = (props: MarkdownProps) => {
   return (
     <ReactMarkdown
       skipHtml={true}
-      renderers={
-        {
-          code: BlockCodeRenderer,
-          inlineCode: InlineCodeRenderer,
-          link: LinkRenderer,
-          blockquote: BlockQuoteRenderer,
-          thematicBreak: ThematicBreakRenderer,
-        }
+      components={
+        code: BlockCodeRenderer,
+        pre: InlineCodeRenderer,
+        link: LinkRenderer,
+        blockquote: BlockQuoteRenderer,
+        hr: ThematicBreakRenderer
       }
     >
       {source}
