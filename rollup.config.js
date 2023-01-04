@@ -2,7 +2,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import ts from '@wessberg/rollup-plugin-ts';
 import postcss from 'rollup-plugin-postcss';
 import markdown from '@jackfranklin/rollup-plugin-markdown';
-import json from 'rollup-plugin-json';
+import json from '@rollup/plugin-json';
 import replace from '@rollup/plugin-replace';
 import commonjs from '@rollup/plugin-commonjs';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
