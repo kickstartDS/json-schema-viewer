@@ -119,6 +119,6 @@
     "build-storybook": "build-storybook",
     "gen-schema": "json2ts json-schema.draft-07.json > src/schema.ts",
     "http-serve": "http-server-spa dist index.html 8080",
-    "rollup-bundle": "rollup --config --sourcemap"
+    "rollup-bundle": "rollup --config --sourcemap --bundleConfigAsCjs"
   }
 }
