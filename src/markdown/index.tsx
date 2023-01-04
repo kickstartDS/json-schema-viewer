@@ -67,7 +67,6 @@ export const Markdown: React.FC<MarkdownProps> = (props: MarkdownProps) => {
   return (
     <ReactMarkdown
       skipHtml={true}
-      source={source}
       renderers={
         {
           code: BlockCodeRenderer,
@@ -77,6 +76,8 @@ export const Markdown: React.FC<MarkdownProps> = (props: MarkdownProps) => {
           thematicBreak: ThematicBreakRenderer,
         }
       }
-    />
+    >
+      {source}
+    </ReactMarkdown>
   );
 };
