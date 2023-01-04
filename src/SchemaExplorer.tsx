@@ -7,7 +7,7 @@ import Button from '@atlaskit/button';
 import ChevronLeftIcon from '@atlaskit/icon/glyph/chevron-left';
 import LinkIcon from '@atlaskit/icon/glyph/link';
 import { Markdown } from './markdown';
-import { BreadcrumbsStateless, BreadcrumbsItem } from '@atlaskit/breadcrumbs';
+import Breadcrumbs, { BreadcrumbsItem } from '@atlaskit/breadcrumbs';
 import Tabs from '@atlaskit/tabs';
 import { TabData, OnSelectCallback } from '@atlaskit/tabs/types';
 import { CodeBlockWithCopy } from './code-block-with-copy';
@@ -104,12 +104,12 @@ const SEPHead: React.FC<SEPHeadProps> = (props) => {
     <Head>
       <div>{ActionButton}</div>
       <Path>
-        <BreadcrumbsStateless
+        <Breadcrumbs
           isExpanded={props.pathExpanded}
           onExpand={onExpandClick}
         >
           {getObjectPath(props.basePathSegments, props.path)}
-        </BreadcrumbsStateless>
+        </Breadcrumbs>
       </Path>
     </Head>
   );
