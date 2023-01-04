@@ -31,7 +31,7 @@ function turnEnumToValues(schema: JsonSchema, lookup: Lookup): JSX.Element | und
   );
 }
 
-export const ParameterMetadata: React.SFC<ParameterMetadataProps> = (props) => {
+export const ParameterMetadata: React.FunctionComponent<ParameterMetadataProps> = (props) => {
   const { schema, lookup } = props;
 
   const restrictions: JSX.Element[] = new Array<JSX.Element>();

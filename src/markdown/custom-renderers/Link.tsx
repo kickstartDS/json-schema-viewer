@@ -14,7 +14,7 @@ export const isExternalLink = (href: string): boolean => {
   ].some(match => match());
 };
 
-export const LinkRenderer: React.SFC<LinkRendererProps> = props => {
+export const LinkRenderer: React.FunctionComponent<LinkRendererProps> = props => {
   const isExternal = isExternalLink(props.href);
 
   return (
