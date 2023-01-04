@@ -108,7 +108,7 @@ export class CodeBlockWithCopy extends React.PureComponent<CodeBlockWithCopyProp
       <Container>
         {copyContent}
         <CodeContainer>
-          <CodeBlock>{text}</CodeBlock>
+          <CodeBlock text={text} />
         </CodeContainer>
       </Container>
     );
