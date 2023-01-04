@@ -73,8 +73,7 @@ export const Markdown: React.FC<MarkdownProps> = (props: MarkdownProps) => {
         code: ({node, ...props}) => <BlockCodeRenderer {...props} />,
         // @ts-ignore just testing
         pre: ({node, ...props}) => <InlineCodeRenderer {...props} />,
-        // @ts-ignore just testing
-        link: ({node, ...props}) => <LinkRenderer {...props} />,
+        a: ({node, ...props}) => <LinkRenderer {...props} />,
         // @ts-ignore just testing
         blockquote: ({node, ...props}) => <BlockQuoteRenderer {...props} />,
         hr: ({node, ...props}) => <ThematicBreakRenderer {...props} />
