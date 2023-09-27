@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { App } from './BrowserApp';
-import './style.css';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import { App } from './BrowserApp';
+// import './style.css';
 
 export * from './SchemaExplorer';
 export * from './SchemaEditor';

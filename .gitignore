@@ -5,3 +5,8 @@ node_modules
 /dist
 *.zip
 /packaged.template
+
+# Editors
+.idea
+
+.DS_Store

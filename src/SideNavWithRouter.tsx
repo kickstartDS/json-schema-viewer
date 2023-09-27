@@ -43,7 +43,7 @@ ${({ selected }) => `
     `}
     */
 
-const NavItem = styled<NavItemProps, 'li'>('li')`
+const NavItem = styled.li<NavItemProps>`
     margin: 0;
     font-size: 11px;
 
