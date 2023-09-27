@@ -4,6 +4,7 @@ const { nodeExternalsPlugin } = require('esbuild-node-externals');
 esbuild.build({
   entryPoints: ['src/index.ts'],
   bundle: true,
+  splitting: true,
   platform: 'browser',
   format: 'esm',
   outdir: 'dist',
