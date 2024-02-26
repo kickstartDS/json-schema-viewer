@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { JsonSchema, JsonSchema1 } from './schema';
 import { getSchemaFromResult, Lookup } from './lookup';
 import { ParameterView } from './Parameter';
@@ -58,11 +58,17 @@ function getObjectPath(basePathSegments: Array<string>, path: PathElement[]): JS
     <BreadcrumbsItem
       key={`${pe.title}-${i}`}
       text={pe.title}
-      component={() => (
-        <NavLinkPreservingSearch to={linkTo(basePathSegments, path.slice(0, i+1).map(p => p.reference))}  exact={true}>
+      component={forwardRef(() => (
+        <NavLinkPreservingSearch
+          to={linkTo(
+            basePathSegments,
+            path.slice(0, i + 1).map((p) => p.reference)
+          )}
+          exact={true}
+        >
           {getTitle(pe.reference, { title: pe.title !== 'object' ? pe.title : undefined })}
         </NavLinkPreservingSearch>
-      )}
+      ))}
     />
   ));
 }
